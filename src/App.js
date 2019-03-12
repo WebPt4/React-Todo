@@ -22,13 +22,32 @@ class App extends React.Component {
     this.state = {
       todo,
       task: '',
-      id: Math.random()
+      id: Math.random(),
     }
   }
-  
+
+
+  addToDo = e => {
+    e.preventDefault();
+    const newToDo = {
+      id: this.state.id,
+      task: this.state.task,
+      completed: false,
+    };
+    console.log(newToDo);
+    this.setState({
+      todo: [...this.state.todo, newToDo],
+    })
+  }
+
+  newTaskHandler = e => {
+    this.setState({task: event.target.value});
+  }
+
   render() {
     return (
       <div>
+        {this.state.todo.map(newList => )}
         <h2>Welcome to your Todo App!</h2>
       </div>
     );
